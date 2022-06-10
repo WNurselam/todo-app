@@ -1,21 +1,32 @@
-import { useState,useEffect } from 'react'
-import Form from './Form'
-import List from './List'
-import Footer from './Footer'
+import Footer from './Footer';
+import Form from './Form';
+import List from './List';
+import React,{useState} from 'react';
 
+ function Todos() {
 
-function Todos() {
-    const [todo,setTodo] = useState([]) // State'i diğer componentlere aktarmak için burada kullanıyoruz.
+  const [todos,setTodos] = useState([]);
+  const [hide,setHide] = useState("All") 
 
-    const [hide, setHide] = useState("All");
   return (
-    <div>Todos
-         <Form setTodo={setTodo} todo={todo}/>
-         <List setTodo={setTodo} todo={todo} setHide= {setHide}/>
-         <Footer/>
+    <div>
+      <Form 
+      todos={todos}
+      setTodos ={setTodos}
+      />
+      <List
+      todos={todos}
+      setTodos={setTodos}
+      hide={hide}
+      />
+      <Footer
+      todos={todos}
+      setTodos={setTodos}
+      hide={hide}
+      />
+
     </div>
-   
   )
 }
 
-export default Todos
+export default Todos;

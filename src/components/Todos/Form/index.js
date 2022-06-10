@@ -1,38 +1,46 @@
-import {useState} from 'react';
+import React, { useState } from "react";
+function Form({ todos, setTodos }) {
+  const [form, setForm] = useState("");
 
-function Form({setTodo,todo}) {
-    const [form,setForm] = useState("");
+  const formSubmit = (e) => {
+    e.preventDefault(); //form'un sürekli yenilenmesini engelliyoruz
 
-    const formSubmit = (e) => {
-        e.preventDefault();
-
-     if(form === ""){
-         return false;
-     }
-    
-     setTodo([
-         ...todo,
-         {
-             id:todo.length > 0 ? todo[todo.length-1].id+1:0,
-             todo:form,
-             checked:false
-         }
-     ]);
-
+    if (form === "") {
+      return false; // İnput değerinin boş gelmemesi için
+      
     }
-    
+    setTodos([
+      ...todos, // State içerisindeki verileri alıyoruz
+      {
+        id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 0, 
+        todo: form,
+        checked: false,
+      },
+    ]);
+  };
+
+  
+
+  const inputChange = (e) => {
+    setForm(e.target.value); // İnput değerini değiştiğinde alıyoruz
+  };
+  
+
   return (
-    <div>
-      <form onSubmit={formSubmit}>
-        <input 
-        placeholder="What needs to be done?"
-        className="new-todo"
-        autoFocus
-        name="text"
-        onChange={(e) => setForm(e.target.value)}
-         />
-      </form>
-    </div>
+   
+      <header className="header">
+        <h1>Todos</h1>
+        <form onSubmit={formSubmit}>
+          <input
+            value={form}
+            className="new-todo"
+            placeholder="What needs to be done?"
+            onChange={inputChange}
+
+          />
+        </form>
+      </header>
+
   );
 }
 

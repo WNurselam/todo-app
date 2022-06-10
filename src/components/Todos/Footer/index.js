@@ -1,27 +1,9 @@
-import {useState} from "react";
+import React,{useState} from 'react'
 
-function Footer({todo,setTodo,setHide}) {
-
-    
+function Footer({todos,setTodos,sethide}) {
   return (
-    <footer className="footer">
-      <span className="todo-count">
-        <strong></strong>
-      </span>
-      <ul className="filters">
-        <li>
-          <a>All</a>
-        </li>
-
-        <li>
-          <a>Active</a>
-        </li>
-        <li>
-          <a>Completed</a>
-        </li>
-      </ul>
-    </footer>
-  );
+    <div></div>
+  )
 }
 
 export default Footer;
