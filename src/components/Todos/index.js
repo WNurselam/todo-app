@@ -5,8 +5,11 @@ import React,{useState} from 'react';
 
  function Todos() {
 
+  //Liste verilerini tutmak için bir array state kullanıyoruz.
   const [todos,setTodos] = useState([]);
-  const [hide,setHide] = useState("All") 
+
+ //Listenin footer'dan gelen bilgiye göre listeleme yapacağız başlangıç değer 'All' olarak atadık
+  const [hide,setHide] = useState("All")  
 
   return (
     <div>
@@ -23,6 +26,7 @@ import React,{useState} from 'react';
       todos={todos}
       setTodos={setTodos}
       hide={hide}
+      setHide={setHide} 
       />
 
     </div>

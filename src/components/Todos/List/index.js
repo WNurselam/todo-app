@@ -21,7 +21,7 @@ const isCompleted = (e) =>{ // Bu fonksiyonda listenin hepsi,aktif veya tamamlan
       return {...todo, checked: !todo.checked}
     }
     return todo;
-  })
+  });
   setTodos(newTodos);
  }
 
